@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo | Destinos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <h1>Logo Turismo</h1>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                
+                <li class="dropdown">
+                    <a href="#">Explorar ▼</a>
+                    
+                    <div class="submenu mega-menu">
+                        <div class="columna">
+                            <h3><a href="destinos.html">Destinos</a></h3>
+                            <ul>
+                                <li>Norte Argentino</li>
+                                <li>Patagonia</li>
+                                <li>Cuyo</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="columna">
+                            <h3><a href="agencias.html">Agencias</a></h3>
+                            <ul>
+                                <li>Ver perfiles</li>
+                                <li>Mejor valoradas</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="columna">
+                            <h3><a href="precios.html">Precios</a></h3>
+                            <ul>
+                                <li>Comparador</li>
+                                <li>Ofertas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                
+                <li><a href="blog.html">Blog</a></li>
+
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <button id="btn-tema" style="background:none; border:none; font-size:24px; cursor:pointer;" aria-label="Cambiar modo oscuro">🌙</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="galeria-destinos">
+            <h2>Catálogo de Destinos</h2>
+
+            <input type="radio" id="filtro-todos" name="categorias" checked>
+            <input type="radio" id="filtro-naturaleza" name="categorias">
+            <input type="radio" id="filtro-cultural" name="categorias">
+            <input type="radio" id="filtro-playa" name="categorias">
+
+            <div class="menu-filtros">
+                <label for="filtro-todos">Todos</label>
+                <label for="filtro-naturaleza">Naturaleza</label>
+                <label for="filtro-cultural">Cultural</label>
+                <label for="filtro-playa">Sol y Playa</label>
+            </div>
+
+            <div class="masonry-grid">
+                
+                <article class="item-destino naturaleza">
+                    <img src="img/patagonia.jpg" alt="Glaciar en la Patagonia">
+                    <div class="overlay-destino">
+                        <h3>Patagonia</h3>
+                        <p>Aventura helada</p>
+                    </div>
+                </article>
+
+                <article class="item-destino cultural">
+                    <img src="img/jujuy.jpg" alt="Cerro de los siete colores">
+                    <div class="overlay-destino">
+                        <h3>Jujuy</h3>
+                        <p>Historia y colores</p>
+                    </div>
+                </article>
+
+                <article class="item-destino playa">
+                    <img src="img/playa.jpg" alt="Playa">
+                    <div class="overlay-destino">
+                        <h3>Mar del Plata</h3>
+                        <p>Sol y arena</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contenedor">
+            <div id="newsletter">
+                <h3>Suscribite a nuestro Newsletter</h3>
+                <form action="#">
+                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit">Suscribirme</button>
+                </form>
+            </div>
+
+            <div id="redes-sociales">
+                <h3>Seguinos</h3>
+                <a href="#" aria-label="Visitar nuestro perfil de Facebook">Facebook</a>
+                <a href="#" aria-label="Ver nuestras fotos en Instagram">Instagram</a>
+                <a href="#" aria-label="Seguirnos en Twitter">Twitter</a>
+            </div>
+
+            <div id="mapa">
+                <h3>Encontranos</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115132.86107248384!2d-65.38368817343202!3d-24.18324403332029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f4957b7f1e7%3A0x6b4cf84f04c6411b!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <p class="copyright">© 2026 Viajes y Turismo. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        var botonTema = document.getElementById("btn-tema");
+        
+        // 1. Al cargar la página, revisamos si estaba activado
+        if (localStorage.getItem("temaOscuro") === "activado") {
+            document.body.classList.add("dark-mode");
+            botonTema.textContent = "☀️"; // Como está oscuro, mostramos el sol
+        }
+
+        // 2. Al hacer clic...
+        botonTema.addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            
+            if (document.body.classList.contains("dark-mode")) {
+                botonTema.textContent = "☀️";
+                localStorage.setItem("temaOscuro", "activado");
+            } else {
+                botonTema.textContent = "🌙";
+                localStorage.setItem("temaOscuro", "desactivado");
+            }
+        });
+    </script>
+
+</body>
+</html>
